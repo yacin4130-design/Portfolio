@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MUHAMMAD YASEEN | Digital Marketing & E Commerce Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:#0a0a0a;color:#f5f5f5;overflow-x:hidden}
+
+/* Scrollbar */
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:#0a0a0a}
+::-webkit-scrollbar-thumb{background:#333;border-radius:3px}
+
+/* ===== HERO ===== */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;position:relative;overflow:hidden;background:radial-gradient(ellipse at 30% 20%,rgba(255,255,255,0.04) 0%,transparent 50%),radial-gradient(ellipse at 70% 80%,rgba(255,255,255,0.02) 0%,transparent 50%)}
+.hero::after{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.015'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");pointer-events:none;opacity:0.5}
+.hero-content{text-align:center;z-index:2;position:relative;padding:0 2rem}
+.hero-label{font-family:'Inter',sans-serif;font-size:0.65rem;letter-spacing:0.5em;text-transform:uppercase;color:#444;margin-bottom:2rem;opacity:0;animation:fadeUp 1s ease forwards}
+.hero-name{font-family:'Playfair Display',serif;font-size:clamp(3.5rem,10vw,8rem);font-weight:900;color:#fff;letter-spacing:-0.04em;line-height:0.95;margin-bottom:1.5rem;opacity:0;animation:fadeUp 1s ease 0.2s forwards}
+.hero-title{font-family:'Inter',sans-serif;font-size:clamp(0.85rem,2vw,1.1rem);font-weight:300;letter-spacing:0.35em;text-transform:uppercase;color:#666;margin-bottom:3rem;opacity:0;animation:fadeUp 1s ease 0.4s forwards}
+.hero-divider{width:60px;height:1px;background:linear-gradient(90deg,transparent,#333,transparent);margin:0 auto 3rem;opacity:0;animation:fadeIn 1s ease 0.6s forwards}
+.hero-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:3rem;max-width:900px;margin:0 auto;opacity:0;animation:fadeUp 1s ease 0.8s forwards}
+.stat{text-align:center;position:relative}
+.stat::after{content:'';position:absolute;right:-1.5rem;top:50%;transform:translateY(-50%);width:1px;height:40px;background:#1a1a1a}
+.stat:last-child::after{display:none}
+.stat-number{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3.5rem);font-weight:700;color:#fff;line-height:1;background:linear-gradient(135deg,#fff 0%,#888 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.stat-label{font-size:0.6rem;letter-spacing:0.25em;text-transform:uppercase;color:#555;margin-top:0.75rem;font-weight:500}
+.hero-contact{display:flex;gap:2.5rem;justify-content:center;margin-top:4rem;flex-wrap:wrap;opacity:0;animation:fadeUp 1s ease 1s forwards}
+.hero-contact-item{display:flex;align-items:center;gap:0.5rem;font-size:0.75rem;color:#555}
+.hero-contact-item svg{width:14px;height:14px;stroke:#444}
+.scroll-indicator{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:0.75rem;opacity:0;animation:fadeIn 1s ease 1.4s forwards}
+.scroll-text{font-size:0.6rem;letter-spacing:0.4em;text-transform:uppercase;color:#333}
+.scroll-line{width:1px;height:35px;background:linear-gradient(to bottom,#333,transparent);animation:scrollPulse 2.5s ease infinite}
+
+/* ===== SECTIONS ===== */
+.section{padding:10rem 2rem;max-width:1400px;margin:0 auto;position:relative}
+.section-alt{background:#070707}
+.section-header{text-align:center;margin-bottom:8rem}
+.section-label{font-family:'Inter',sans-serif;font-size:0.6rem;letter-spacing:0.5em;text-transform:uppercase;color:#444;margin-bottom:1.5rem;font-weight:500}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,5vw,4rem);font-weight:700;color:#fff;line-height:1.1;letter-spacing:-0.02em}
+.section-sub{font-size:0.95rem;color:#555;margin-top:1.5rem;max-width:650px;margin-left:auto;margin-right:auto;line-height:1.8;font-weight:300}
+
+/* ===== 3D CARDS ===== */
+.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(400px,1fr));gap:2.5rem;perspective:2000px}
+.card-3d{position:relative;transform-style:preserve-3d;transition:all 0.5s cubic-bezier(0.23,1,0.32,1)}
+.card-3d:hover{transform:translateY(-12px)}
+.card-inner{background:#0f0f0f;border:1px solid #1a1a1a;padding:3rem;position:relative;overflow:hidden;transition:all 0.4s ease;height:100%;display:flex;flex-direction:column}
+.card-inner::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.08),transparent)}
+.card-3d:hover .card-inner{border-color:#2a2a2a;box-shadow:0 30px 60px -15px rgba(0,0,0,0.9),0 0 0 1px rgba(255,255,255,0.03)}
+.card-glow{position:absolute;inset:0;opacity:0;transition:opacity 0.4s ease;background:radial-gradient(600px circle at var(--mouse-x,50%) var(--mouse-y,50%),rgba(255,255,255,0.03),transparent 40%);pointer-events:none}
+.card-3d:hover .card-glow{opacity:1}
+
+/* Word Logo */
+.word-logo{font-family:'Space Grotesk',sans-serif;font-size:1.8rem;font-weight:700;color:#fff;letter-spacing:-0.02em;margin-bottom:0.5rem;line-height:1.2}
+.word-logo-alt{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:600;color:#fff;font-style:italic}
+.word-logo-mono{font-family:'Space Grotesk',monospace;font-size:1.4rem;font-weight:500;color:#fff;letter-spacing:0.1em}
+.word-logo-bold{font-family:'Inter',sans-serif;font-size:1.5rem;font-weight:800;color:#fff;letter-spacing:-0.03em;text-transform:uppercase}
+
+.card-category{font-size:0.6rem;letter-spacing:0.35em;text-transform:uppercase;color:#444;margin-bottom:1.5rem;font-weight:500}
+.card-name{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:600;color:#fff;margin-bottom:0.5rem;line-height:1.2}
+.card-role{font-size:0.8rem;color:#666;margin-bottom:2rem;font-weight:400;line-height:1.5}
+.card-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-bottom:2rem;padding-top:2rem;border-top:1px solid #1a1a1a;margin-top:auto}
+.metric-value{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:600;color:#fff;line-height:1}
+.metric-label{font-size:0.55rem;letter-spacing:0.15em;text-transform:uppercase;color:#444;margin-top:0.4rem;font-weight:500}
+.card-desc{font-size:0.8rem;color:#555;line-height:1.8;margin-top:auto}
+.card-link{position:absolute;top:1.5rem;right:1.5rem;width:32px;height:32px;border:1px solid #222;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:all 0.3s ease;opacity:0;transform:translateY(-5px)}
+.card-3d:hover .card-link{opacity:1;transform:translateY(0)}
+.card-link:hover{border-color:#444;background:rgba(255,255,255,0.03)}
+.card-link svg{width:12px;height:12px;stroke:#666}
+
+/* ===== FREELANCE ===== */
+.freelance-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:1.5rem}
+.freelance-card{background:#0c0c0c;border:1px solid #151515;padding:2.5rem;transition:all 0.4s ease;position:relative;overflow:hidden}
+.freelance-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,#2a2a2a,transparent);transform:scaleX(0);transition:transform 0.5s ease}
+.freelance-card:hover::after{transform:scaleX(1)}
+.freelance-card:hover{border-color:#222;transform:translateY(-6px);box-shadow:0 20px 40px -10px rgba(0,0,0,0.8)}
+.freelance-logo{font-family:'Space Grotesk',sans-serif;font-size:1.4rem;font-weight:700;color:#fff;margin-bottom:0.75rem;letter-spacing:-0.01em}
+.freelance-logo-alt{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:600;color:#fff;font-style:italic}
+.freelance-name{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:600;color:#fff;margin-bottom:0.3rem}
+.freelance-role{font-size:0.7rem;color:#444;margin-bottom:1.5rem;letter-spacing:0.05em}
+.freelance-metrics{display:flex;gap:2rem;margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid #151515}
+.freelance-metric{font-size:0.7rem}
+.freelance-metric span{display:block;font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:600;color:#fff;margin-bottom:0.2rem}
+.freelance-metric label{font-size:0.5rem;letter-spacing:0.2em;text-transform:uppercase;color:#444;font-weight:500}
+.freelance-desc{font-size:0.75rem;color:#555;line-height:1.7}
+.freelance-link{position:absolute;top:1.5rem;right:1.5rem;font-size:0.6rem;color:#333;transition:color 0.3s ease;text-decoration:none;letter-spacing:0.1em}
+.freelance-card:hover .freelance-link{color:#666}
+
+/* ===== INFLUENCERS ===== */
+.influencer-section{background:#050505;padding:8rem 2rem}
+.influencer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1rem;max-width:1200px;margin:0 auto}
+.influencer-card{background:#0c0c0c;border:1px solid #151515;padding:2rem 1rem;text-align:center;transition:all 0.4s ease;position:relative}
+.influencer-card:hover{border-color:#2a2a2a;transform:translateY(-5px);box-shadow:0 15px 30px -10px rgba(0,0,0,0.6)}
+.influencer-initial{width:48px;height:48px;border-radius:50%;background:#111;border:1px solid #222;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:#fff;transition:all 0.3s ease}
+.influencer-card:hover .influencer-initial{background:#1a1a1a;border-color:#333}
+.influencer-name{font-size:0.8rem;font-weight:500;color:#ddd;margin-bottom:0.4rem}
+.influencer-region{font-size:0.55rem;letter-spacing:0.25em;text-transform:uppercase;color:#333;font-weight:500}
+.influencer-count{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:#fff;text-align:center;margin-bottom:4rem}
+.influencer-count-label{font-size:0.6rem;letter-spacing:0.4em;text-transform:uppercase;color:#444;margin-top:0.5rem}
+
+/* ===== SKILLS ===== */
+.skills-section{padding:8rem 2rem;max-width:1200px;margin:0 auto}
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem}
+.skill-category{background:#0c0c0c;border:1px solid #151515;padding:2.5rem;transition:all 0.3s ease}
+.skill-category:hover{border-color:#222}
+.skill-category-title{font-family:'Playfair Display',serif;font-size:1rem;font-weight:600;color:#fff;margin-bottom:1.5rem;padding-bottom:1rem;border-bottom:1px solid #1a1a1a}
+.skill-list{list-style:none}
+.skill-list li{font-size:0.75rem;color:#555;padding:0.5rem 0;border-bottom:1px solid #111;transition:all 0.3s ease;display:flex;align-items:center;gap:0.5rem}
+.skill-list li::before{content:'';width:3px;height:3px;background:#333;border-radius:50%;transition:all 0.3s ease}
+.skill-list li:hover{color:#ccc;padding-left:0.5rem}
+.skill-list li:hover::before{background:#666}
+.skill-list li:last-child{border-bottom:none}
+
+/* ===== FOOTER ===== */
+.footer{text-align:center;padding:5rem 2rem 3rem;border-top:1px solid #111;background:#050505}
+.footer-name{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:#fff;margin-bottom:0.5rem;letter-spacing:-0.02em}
+.footer-title{font-size:0.7rem;letter-spacing:0.4em;text-transform:uppercase;color:#444;margin-bottom:3rem;font-weight:500}
+.footer-contact{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem;max-width:800px;margin:0 auto;font-size:0.8rem;color:#555}
+.footer-contact-item{display:flex;align-items:center;justify-content:center;gap:0.5rem;padding:1rem;background:#0c0c0c;border:1px solid #151515;transition:all 0.3s ease}
+.footer-contact-item:hover{border-color:#222}
+.footer-contact-item svg{width:14px;height:14px;stroke:#444}
+.footer-contact-item a{color:#777;text-decoration:none;transition:color 0.3s ease}
+.footer-contact-item a:hover{color:#fff}
+.footer-bottom{margin-top:3rem;font-size:0.65rem;color:#222;letter-spacing:0.2em}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes scrollPulse{0%{transform:scaleY(1);opacity:1}50%{transform:scaleY(0.4);opacity:0.3}100%{transform:scaleY(1);opacity:1}}
+
+/* Responsive */
+@media(max-width:768px){
+.hero-stats{grid-template-columns:repeat(2,1fr);gap:2rem}
+.stat::after{display:none}
+.card-grid{grid-template-columns:1fr}
+.section{padding:5rem 1.5rem}
+.hero-contact{gap:1rem}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+<div class="hero-content">
+<p class="hero-label">Portfolio 2026</p>
+<h1 class="hero-name">MUHAMMAD<br>YASEEN</h1>
+<p class="hero-title">Digital Marketing & E Commerce Manager</p>
+<div class="hero-divider"></div>
+<div class="hero-stats">
+<div class="stat">
+<div class="stat-number">$16M+</div>
+<div class="stat-label">Revenue Generated</div>
+</div>
+<div class="stat">
+<div class="stat-number">17,000%</div>
+<div class="stat-label">Average ROAS</div>
+</div>
+<div class="stat">
+<div class="stat-number">1,235</div>
+<div class="stat-label">Influencer Collabs</div>
+</div>
+<div class="stat">
+<div class="stat-number">7 Years</div>
+<div class="stat-label">Experience</div>
+</div>
+</div>
+<div class="hero-contact">
+<div class="hero-contact-item">
+<svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
++971 56 556 1226
+</div>
+<div class="hero-contact-item">
+<svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
++92 303 822 4894
+</div>
+<div class="hero-contact-item">
+<svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+yacin4130@gmail.com
+</div>
+<div class="hero-contact-item">
+<svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+Dubai UAE & Islamabad Pakistan
+</div>
+</div>
+</div>
+<div class="scroll-indicator">
+<span class="scroll-text">Explore</span>
+<div class="scroll-line"></div>
+</div>
+</section>
+
+<!-- ===== TAMRAH GLOBAL ===== -->
+<section class="section">
+<div class="section-header">
+<p class="section-label">Agency Experience</p>
+<h2 class="section-title">Tamrah Global Media Agency</h2>
+<p class="section-sub">Senior Digital Marketing & E Commerce Lead overseeing global luxury brands across GCC  EU and US markets. Architecting multi channel strategies that consistently deliver measurable ROI and scalable market impact.</p>
+</div>
+
+<div class="card-grid">
+<!-- KITH -->
+<div class="card-3d" onmousemove="handleMouseMove(event,this)" onmouseleave="handleMouseLeave(this)">
+<div class="card-glow"></div>
+<div class="card-inner">
+<a href="https://kith.com" target="_blank" class="card-link" title="Visit Website">
+<svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+</a>
+<div class="word-logo">KITH</div>
+<p class="card-category">Luxury Fashion  |  Global DTC & Retail</p>
+<h3 class="card-name">Senior Performance and Growth Lead</h3>
+<div class="card-metrics">
+<div><div class="metric-value">25-35%</div><div class="metric-label">Waste Reduction</div></div>
+<div><div class="metric-value">30%</div><div class="metric-label">ROAS Stability</div></div>
+<div><div class="metric-value">20%</div><div class="metric-label">Repeat Customers</div></div>
+</div>
+<p class="card-desc">Owned paid media and growth across international markets for drop releases  capsule launches and inventory cycles. Rebuilt account structure around brand  non brand and drop keyword frameworks with audience segmentation by purchase velocity and repeat behaviour. Led creative testing focused on fabric detail  fit visuals and lifestyle storytelling controlling frequency and placements to protect luxury perception.</p>
+</div>
+</div>
+
+<!-- COTY -->
+<div class="card-3d" onmousemove="handleMouseMove(event,this)" onmouseleave="handleMouseLeave(this)">
+<div class="card-glow"></div>
+<div class="card-inner">
+<a href="https://www.coty.com" target="_blank" class="card-link" title="Visit Website">
+<svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+</a>
+<div class="word-logo" style="font-family:'Playfair Display',serif;font-style:italic">COTY</div>
+<p class="card-category">Global Beauty & Fragrance Group</p>
+<h3 class="card-name">Digital Performance and Market Optimization Specialist</h3>
+<div class="card-metrics">
+<div><div class="metric-value">37%</div><div class="metric-label">CPC Reduction</div></div>
+<div><div class="metric-value">25%</div><div class="metric-label">Launch Conversion</div></div>
+<div><div class="metric-value">28%</div><div class="metric-label">Gifting Season</div></div>
+</div>
+<p class="card-desc">Supported performance execution for fragrance and beauty portfolios across US and EU. Structured campaigns by product lifecycle stages including launch  scale and sustain. Designed audience logic based on gender  age clusters  gifting behaviour and seasonality reducing cost volatility through keyword pruning and message alignment. Ensured full compliance with cosmetics and fragrance advertising policies.</p>
+</div>
+</div>
+
+<!-- BYD -->
+<div class="card-3d" onmousemove="handleMouseMove(event,this)" onmouseleave="handleMouseLeave(this)">
+<div class="card-glow"></div>
+<div class="card-inner">
+<a href="https://www.byd.com" target="_blank" class="card-link" title="Visit Website">
+<svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+</a>
+<div class="word-logo-mono">BYD</div>
+<p class="card-category">Electric Vehicles  |  Automotive</p>
+<h3 class="card-name">Digital Lead Generation and Funnel Optimization Manager</h3>
+<div class="card-metrics">
+<div><div class="metric-value">40%</div><div class="metric-label">CPL Reduction</div></div>
+<div><div class="metric-value">46%</div><div class="metric-label">Showroom Conversion</div></div>
+<div><div class="metric-value">35%</div><div class="metric-label">Low Intent Removal</div></div>
+</div>
+<p class="card-desc">Owned full digital lead generation funnel from awareness to showroom visit. Rebuilt keyword structures to separate research intent from purchase intent. Designed multi stage funnels for test drive and dealership ready prospects optimising landing pages for mobile first automotive research behaviour. Integrated offline conversion tracking connecting leads to showroom visits and sales follow ups.</p>
+</div>
+</div>
+
+<!-- Jose Eber -->
+<div class="card-3d" onmousemove="handleMouseMove(event,this)" onmouseleave="handleMouseLeave(this)">
+<div class="card-glow"></div>
+<div class="card-inner">
+<a href="https://joseeberbeauty.com" target="_blank" class="card-link" title="Visit Website">
+<svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+</a>
+<div class="word-logo-alt">Jose Eber</div>
+<p class="card-category">Luxury Hair & Styling Products</p>
+<h3 class="card-name">Luxury Performance and Retention Marketing Lead</h3>
+<div class="card-metrics">
+<div><div class="metric-value">19%</div><div class="metric-label">Repeat Purchase</div></div>
+<div><div class="metric-value">20%</div><div class="metric-label">ROAS Improvement</div></div>
+<div><div class="metric-value">22%</div><div class="metric-label">Remarketing Conv.</div></div>
+</div>
+<p class="card-desc">Led performance scaling while maintaining heritage driven luxury positioning. Shifted creative direction from trend based hooks to craftsmanship and professional authority. Built remarketing segmentation by interaction depth and purchase probability controlling frequency to avoid overexposure in high income segments. Supported retention and repeat purchase strategies.</p>
+</div>
+</div>
+
+<!-- Forever for Love -->
+<div class="card-3d" onmousemove="handleMouseMove(event,this)" onmouseleave="handleMouseLeave(this)">
+<div class="card-glow"></div>
+<div class="card-inner">
+<a href="https://foreverforlove.com" target="_blank" class="card-link" title="Visit Website">
+<svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+</a>
+<div class="word-logo-alt" style="font-size:1.3rem">Forever for Love</div>
+<p class="card-category">Luxury Jewelry</p>
+<h3 class="card-name">High Consideration Funnel and Trust Optimization Lead</h3>
+<div class="card-metrics">
+<div><div class="metric-value">83%</div><div class="metric-label">Qualified Inquiries</div></div>
+<div><div class="metric-value">43%</div><div class="metric-label">Bounce Reduction</div></div>
+<div><div class="metric-value">35%</div><div class="metric-label">Trust Engagement</div></div>
+</div>
+<p class="card-desc">Designed full acquisition and remarketing funnels for long decision cycle purchases. Built intent based targeting around engagement  anniversaries and gifting milestones. Optimised landing experiences for certification clarity and customization transparency ensuring cultural and regional compliance across GCC markets. Supported consultation based sales flows.</p>
+</div>
+</div>
+
+<!-- DXB Acoustic -->
+<div class="card-3d" onmousemove="handleMouseMove(event,this)" onmouseleave="handleMouseLeave(this)">
+<div class="card-glow"></div>
+<div class="card-inner">
+<a href="https://dxbacoustic.com" target="_blank" class="card-link" title="Visit Website">
+<svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+</a>
+<div class="word-logo-bold" style="font-size:1.2rem">DXB ACOUSTIC</div>
+<p class="card-category">Soundproofing & Acoustic Treatment</p>
+<h3 class="card-name">B2B and B2C Digital Growth and SEO Lead</h3>
+<div class="card-metrics">
+<div><div class="metric-value">Top 5</div><div class="metric-label">1 Month Rankings</div></div>
+<div><div class="metric-value">55%</div><div class="metric-label">Organic Leads</div></div>
+<div><div class="metric-value">30%</div><div class="metric-label">Paid Dependency Cut</div></div>
+</div>
+<p class="card-desc">Led full white hat technical SEO including crawl control  Core Web Vitals  schema and index management. Executed on page SEO for service and solution pages aligned with commercial intent. Built omni channel SEO ecosystems connecting services  blogs  case studies and videos. Built segmented funnels for architects  consultants  contractors and studios aligning marketing with long B2B sales cycles.</p>
+</div>
+</div>
+
+<!-- Couture Hair Pro -->
+<div class="card-3d" onmousemove="handleMouseMove(event,this)" onmouseleave="handleMouseLeave(this)">
+<div class="card-glow"></div>
+<div class="card-inner">
+<a href="https://www.couturehairpro.com" target="_blank" class="card-link" title="Visit Website">
+<svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+</a>
+<div class="word-logo-alt" style="font-size:1.4rem">Couture Hair Pro</div>
+<p class="card-category">Premium Hair Tools  |  DTC & Marketplaces</p>
+<h3 class="card-name">Head of Digital Growth and E Commerce Optimization</h3>
+<div class="card-metrics">
+<div><div class="metric-value">60%</div><div class="metric-label">Organic Traffic</div></div>
+<div><div class="metric-value">30%</div><div class="metric-label">Website Conversion</div></div>
+<div><div class="metric-value">375</div><div class="metric-label">Influencer Collabs</div></div>
+</div>
+<p class="card-desc">Owned end to end digital growth across DTC and marketplace ecosystems. Implemented white hat technical SEO and index optimization. Built content SEO clusters aligned with commercial hair tool intent optimising Shopify PDPs  trust signals and checkout flows. Managed 375 influential collaborations with macro influencers and celebrities. Optimised Amazon and Noon listings with SEO titles  image hierarchy and A Plus content.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ===== FREELANCE ===== -->
+<section class="section section-alt">
+<div class="section-header">
+<p class="section-label">Independent Consultancy</p>
+<h2 class="section-title">Freelance Brand Management & E Commerce</h2>
+<p class="section-sub">End to end digital marketing  e commerce and brand growth for independent clients across beauty  fashion  automotive  real estate and technology sectors. Total freelance revenue managed: approximately 3.2 million USD with average 15 000 percent ROAS.</p>
+</div>
+
+<div class="freelance-grid">
+<!-- MyBreeches -->
+<div class="freelance-card">
+<a href="https://mybreeches.com" target="_blank" class="freelance-link">VISIT →</a>
+<div class="freelance-logo" style="font-family:'Playfair Display',serif;font-style:italic">MyBreeches</div>
+<h4 class="freelance-name">MyBreeches.com</h4>
+<p class="freelance-role">Equestrian Fashion & Lifestyle E Commerce</p>
+<div class="freelance-metrics">
+<div class="freelance-metric"><span>340K GBP</span><label>Annual Revenue</label></div>
+<div class="freelance-metric"><span>12,500%</span><label>ROAS</label></div>
+</div>
+<p class="freelance-desc">Managed full digital growth for UK based equestrian fashion retailer specialising in premium riding apparel  boots and accessories. Executed Google Search and Shopping campaigns with monthly ad spend of 8 000 GBP optimising for ROAS and customer acquisition across UK  EU and US markets. Implemented technical SEO including site speed optimisation  schema markup and mobile first indexing improving organic visibility by 45 percent. Built content SEO clusters around equestrian lifestyle keywords driving 12 000 plus monthly organic visitors within four months. Managed Shopify store optimisation: PDP restructuring  trust signal enhancement and checkout flow refinement improving conversion rate by 28 percent. Coordinated influencer partnerships with equestrian athletes and lifestyle creators across UK and Germany generating 180 plus collaborative posts.</p>
+</div>
+
+<!-- Echonik -->
+<div class="freelance-card">
+<a href="https://echonik.ae" target="_blank" class="freelance-link">VISIT →</a>
+<div class="freelance-logo" style="font-family:'Space Grotesk',sans-serif;letter-spacing:0.15em">ECHONIK</div>
+<h4 class="freelance-name">Echonik</h4>
+<p class="freelance-role">Consumer Electronics & Audio Technology</p>
+<div class="freelance-metrics">
+<div class="freelance-metric"><span>890K AED</span><label>Annual Revenue</label></div>
+<div class="freelance-metric"><span>14,800%</span><label>ROAS</label></div>
+</div>
+<p class="freelance-desc">Directed paid media strategy across Google  Meta and Amazon for wireless audio products and smart home devices targeting GCC and South Asian markets. Managed monthly ad budget of 12 000 AED across platforms with focus on new customer acquisition and repeat purchase stimulation. Optimised Amazon listings with A Plus content  SEO titles and image hierarchy improving Best Seller Rank by 35 positions. Implemented remarketing segmentation by product category and purchase recency improving repeat purchase rate by 22 percent.</p>
+</div>
+
+<!-- Deconik -->
+<div class="freelance-card">
+<a href="#" class="freelance-link">VISIT →</a>
+<div class="freelance-logo" style="font-family:'Inter',sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:-0.02em">Deconik</div>
+<h4 class="freelance-name">Deconik</h4>
+<p class="freelance-role">Interior Design & Home Decor</p>
+<div class="freelance-metrics">
+<div class="freelance-metric"><span>1.2M AED</span><label>Annual Contract Value</label></div>
+<div class="freelance-metric"><span>18,000%</span><label>ROAS</label></div>
+</div>
+<p class="freelance-desc">Developed B2B focused digital strategy for interior design firm targeting architects  property developers and hospitality clients across UAE and KSA. Built LinkedIn Ads campaigns with monthly spend of 6 000 AED targeting decision makers by job title  company size and project type. Created case study content library and portfolio videos for website and social distribution improving inbound inquiry quality by 40 percent. Managed Google Ads for high intent service keywords generating 60 to 80 qualified B2B leads monthly.</p>
+</div>
+
+<!-- Bag2Pack -->
+<div class="freelance-card">
+<a href="https://bag2pack.ae" target="_blank" class="freelance-link">VISIT →</a>
+<div class="freelance-logo" style="font-family:'Inter',sans-serif;font-weight:700">Bag2Pack</div>
+<h4 class="freelance-name">Bag2Pack</h4>
+<p class="freelance-role">Travel Accessories & Luggage</p>
+<div class="freelance-metrics">
+<div class="freelance-metric"><span>520K AED</span><label>Annual Revenue</label></div>
+<div class="freelance-metric"><span>11,500%</span><label>ROAS</label></div>
+</div>
+<p class="freelance-desc">Managed Amazon and Noon marketplace operations for travel accessories brand including listing optimisation  inventory management and promotional planning. Executed PPC campaigns on Amazon with monthly spend of 4 500 AED focusing on sponsored products and brand defence. Redesigned product images and A Plus content improving click through rate by 32 percent and conversion rate by 19 percent. Implemented review generation strategy increasing average rating from 3.8 to 4.6 stars within three months.</p>
+</div>
+
+<!-- Lyon Scent -->
+<div class="freelance-card">
+<a href="#" class="freelance-link">VISIT →</a>
+<div class="freelance-logo" style="font-family:'Playfair Display',serif;font-style:italic">Lyon Scent</div>
+<h4 class="freelance-name">Lyon Scent</h4>
+<p class="freelance-role">Niche Fragrances & Perfumery</p>
+<div class="freelance-metrics">
+<div class="freelance-metric"><span>780K AED</span><label>Annual Revenue</label></div>
+<div class="freelance-metric"><span>16,200%</span><label>ROAS</label></div>
+</div>
+<p class="freelance-desc">Developed luxury positioning strategy for niche fragrance brand targeting high net worth individuals across GCC. Managed Meta and Google campaigns with monthly spend of 10 000 AED focusing on brand storytelling and olfactory lifestyle content. Built email marketing automation via Klaviyo with segmentation by scent preference  purchase history and gifting occasions. Created video content featuring fragrance layering tutorials and brand heritage stories achieving 28 000 plus average views per Reel.</p>
+</div>
+
+<!-- Frenciiga -->
+<div class="freelance-card">
+<a href="#" class="freelance-link">VISIT →</a>
+<div class="freelance-logo" style="font-family:'Playfair Display',serif;font-style:italic">Frenciiga</div>
+<h4 class="freelance-name">Frenciiga</h4>
+<p class="freelance-role">Premium Fashion & Accessories</p>
+<div class="freelance-metrics">
+<div class="freelance-metric"><span>450K AED</span><label>Annual Revenue</label></div>
+<div class="freelance-metric"><span>13,400%</span><label>ROAS</label></div>
+</div>
+<p class="freelance-desc">Led TikTok Shop and Instagram Shopping strategy for premium fashion brand targeting Gen Z and millennial audiences across GCC. Managed influencer collaborations with 45 fashion creators producing shoppable content and live shopping events. Optimised product feeds and catalog management across TikTok Shop and Meta Commerce Shop improving product discovery by 38 percent. Executed TikTok Ads with monthly spend of 7 000 AED focusing on spark ads and collection ads driving direct in app purchases.</p>
+</div>
+
+<!-- DXB Acoustic Freelance -->
+<div class="freelance-card">
+<a href="https://dxbacoustic.com" target="_blank" class="freelance-link">VISIT →</a>
+<div class="freelance-logo" style="font-family:'Space Grotesk',sans-serif;letter-spacing:0.1em;font-weight:600">DXB ACOUSTIC</div>
+<h4 class="freelance-name">DXB Acoustic</h4>
+<p class="freelance-role">Acoustic Treatment & Soundproofing</p>
+<div class="freelance-metrics">
+<div class="freelance-metric"><span>650K AED</span><label>Annual Lead Value</label></div>
+<div class="freelance-metric"><span>15,600%</span><label>ROAS</label></div>
+</div>
+<p class="freelance-desc">Provided ongoing SEO consultancy and lead generation support for acoustic treatment company serving commercial and residential clients. Conducted technical SEO audits resolving crawl errors  improving Core Web Vitals and implementing structured data markup. Built local SEO strategy across Dubai  Abu Dhabi and Sharjah generating 90 plus qualified B2B leads monthly. Managed Google Ads with monthly spend of 9 000 AED for high intent commercial keywords.</p>
+</div>
+
+<!-- Parlour Firm -->
+<div class="freelance-card">
+<a href="#" class="freelance-link">VISIT →</a>
+<div class="freelance-logo" style="font-family:'Playfair Display',serif;font-weight:600">Parlour Firm</div>
+<h4 class="freelance-name">Parlour Firm</h4>
+<p class="freelance-role">Beauty Salon & Wellness Chain</p>
+<div class="freelance-metrics">
+<div class="freelance-metric"><span>380K AED</span><label>Annual Booking Value</label></div>
+<div class="freelance-metric"><span>14,200%</span><label>ROAS</label></div>
+</div>
+<p class="freelance-desc">Managed local SEO and social media presence for multi location beauty salon chain across Dubai and Sharjah. Created and optimised 6 Google Business Profiles improving local pack rankings and driving 200 plus monthly booking inquiries. Produced Reels and TikTok content showcasing treatments  before and after results and staff expertise achieving 15 000 plus average views. Implemented WhatsApp Business API for appointment booking and automated follow ups reducing no show rate by 25 percent.</p>
+</div>
+
+<!-- Alif Real Estate -->
+<div class="freelance-card">
+<a href="#" class="freelance-link">VISIT →</a>
+<div class="freelance-logo" style="font-family:'Space Grotesk',sans-serif;letter-spacing:0.05em">ALIF</div>
+<h4 class="freelance-name">Alif Real Estate</h4>
+<p class="freelance-role">Residential & Commercial Property</p>
+<div class="freelance-metrics">
+<div class="freelance-metric"><span>2.1M AED</span><label>Annual Sales Value</label></div>
+<div class="freelance-metric"><span>19,800%</span><label>ROAS</label></div>
+</div>
+<p class="freelance-desc">Provided digital marketing consultancy for residential and commercial property developments in Ajman and Dubai. Managed Meta Lead Ads and Google Search campaigns with monthly spend of 8 500 AED targeting investors and end users. Designed landing pages for specific developments with virtual tours  floor plans and pricing calculators improving lead quality by 35 percent. Built email nurture sequences for long sales cycle properties maintaining engagement over 6 to 12 month periods.</p>
+</div>
+
+<!-- Aldar -->
+<div class="freelance-card">
+<a href="https://www.aldar.com" target="_blank" class="freelance-link">VISIT →</a>
+<div class="freelance-logo" style="font-family:'Inter',sans-serif;font-weight:800;letter-spacing:0.2em">ALDAR</div>
+<h4 class="freelance-name">Aldar</h4>
+<p class="freelance-role">Premium Real Estate Development</p>
+<div class="freelance-metrics">
+<div class="freelance-metric"><span>4.5M AED</span><label>Annual Sales Contribution</label></div>
+<div class="freelance-metric"><span>17,000%</span><label>ROAS</label></div>
+</div>
+<p class="freelance-desc">Provided strategic digital advisory for premium residential project launches in Abu Dhabi including audience segmentation and channel mix recommendations. Oversaw campaign execution across Google  Meta and LinkedIn with combined monthly spend of 25 000 AED. Developed investor focused content strategy: project renderings  amenity highlights and ROI projections for off plan properties. Implemented lead scoring system prioritising high intent prospects for sales team follow up improving conversion by 28 percent.</p>
+</div>
+
+<!-- Emaar -->
+<div class="freelance-card">
+<a href="https://www.emaar.com" target="_blank" class="freelance-link">VISIT →</a>
+<div class="freelance-logo" style="font-family:'Inter',sans-serif;font-weight:700;letter-spacing:0.15em">EMAAR</div>
+<h4 class="freelance-name">Emaar</h4>
+<p class="freelance-role">Luxury Property & Hospitality</p>
+<div class="freelance-metrics">
+<div class="freelance-metric"><span>3.8M AED</span><label>Annual Revenue Contribution</label></div>
+<div class="freelance-metric"><span>16,500%</span><label>ROAS</label></div>
+</div>
+<p class="freelance-desc">Consulted on performance marketing for luxury hospitality and residential portfolios across Dubai. Managed Google Display and YouTube campaigns with monthly spend of 15 000 AED targeting HNW individuals in GCC  UK and Russia. Created video content showcasing lifestyle amenities  architectural design and community features achieving 55 000 plus average views. Optimised remarketing funnels by property type and buyer journey stage improving return visit rate by 42 percent.</p>
+</div>
+
+<!-- AUM99homes -->
+<div class="freelance-card">
+<a href="#" class="freelance-link">VISIT →</a>
+<div class="freelance-logo" style="font-family:'Space Grotesk',sans-serif;font-weight:600;letter-spacing:0.05em">AUM99homes</div>
+<h4 class="freelance-name">AUM99homes</h4>
+<p class="freelance-role">Property Listing & Real Estate Platform</p>
+<div class="freelance-metrics">
+<div class="freelance-metric"><span>1.9M AED</span><label>Annual Platform Revenue</label></div>
+<div class="freelance-metric"><span>15,200%</span><label>ROAS</label></div>
+</div>
+<p class="freelance-desc">Led SEO and organic growth for property listing platform competing against Dubizzle and Property Finder. Conducted comprehensive keyword research and competitor gap analysis identifying 200 plus untapped high intent keywords. Implemented technical SEO: site architecture restructuring  URL optimisation and internal linking strategy improving crawl efficiency by 50 percent. Built content hub with neighbourhood guides  investment insights and market reports generating 25 000 plus monthly organic visitors. Managed Google Ads with monthly spend of 11 000 AED for property category and location based campaigns.</p>
+</div>
+</div>
+</section>
+
+<!-- ===== INFLUENCERS ===== -->
+<section class="influencer-section">
+<div style="text-align:center;margin-bottom:5rem">
+<p class="section-label">Network</p>
+<div class="influencer-count">1,235</div>
+<p class="influencer-count-label">Influential Marketing Collaborations</p>
+<p class="section-sub" style="margin-top:1.5rem">Macro influencer and celebrity partnerships across GCC  EU and US markets driving substantial brand awareness and engagement</p>
+</div>
+
+<div class="influencer-grid">
+<div class="influencer-card"><div class="influencer-initial">HK</div><div class="influencer-name">Huda Kattan</div><div class="influencer-region">GCC</div></div>
+<div class="influencer-card"><div class="influencer-initial">JM</div><div class="influencer-name">Joelle Mardinian</div><div class="influencer-region">GCC</div></div>
+<div class="influencer-card"><div class="influencer-initial">MS</div><div class="influencer-name">Mina Al Sheikhly</div><div class="influencer-region">GCC</div></div>
+<div class="influencer-card"><div class="influencer-initial">AA</div><div class="influencer-name">Ascia Al Faraj</div><div class="influencer-region">GCC</div></div>
+<div class="influencer-card"><div class="influencer-initial">FF</div><div class="influencer-name">Fouz Al Fahad</div><div class="influencer-region">GCC</div></div>
+<div class="influencer-card"><div class="influencer-initial">DT</div><div class="influencer-name">Dana Al Tuwarish</div><div class="influencer-region">GCC</div></div>
+<div class="influencer-card"><div class="influencer-initial">NN</div><div class="influencer-name">Noha Nabil</div><div class="influencer-region">GCC</div></div>
+<div class="influencer-card"><div class="influencer-initial">DB</div><div class="influencer-name">Darin Al Bayed</div><div class="influencer-region">GCC</div></div>
+<div class="influencer-card"><div class="influencer-initial">KK</div><div class="influencer-name">Khlood Kibeda</div><div class="influencer-region">GCC</div></div>
+<div class="influencer-card"><div class="influencer-initial">KJ</div><div class="influencer-name">Kendall Jenner</div><div class="influencer-region">US</div></div>
+<div class="influencer-card"><div class="influencer-initial">GH</div><div class="influencer-name">Gigi Hadid</div><div class="influencer-region">US</div></div>
+<div class="influencer-card"><div class="influencer-initial">ER</div><div class="influencer-name">Emily Ratajkowski</div><div class="influencer-region">US</div></div>
+</div>
+</section>
+
+<!-- ===== SKILLS ===== -->
+<section class="skills-section">
+<div class="section-header" style="margin-bottom:5rem">
+<p class="section-label">Capabilities</p>
+<h2 class="section-title">Technical Proficiencies & Platform Expertise</h2>
+</div>
+
+<div class="skills-grid">
+<div class="skill-category">
+<h4 class="skill-category-title">Advertising & Analytics</h4>
+<ul class="skill-list">
+<li>Google Ads 360</li>
+<li>Meta Business Suite</li>
+<li>TikTok Ads Manager</li>
+<li>Snapchat Ads Manager</li>
+<li>LinkedIn Campaign Manager</li>
+<li>X Ads</li>
+<li>Google Analytics 4</li>
+<li>Google Tag Manager</li>
+<li>Google Search Console</li>
+<li>Google Marketing Platform</li>
+<li>PPC Campaign Architecture</li>
+</ul>
+</div>
+
+<div class="skill-category">
+<h4 class="skill-category-title">E Commerce & Marketplaces</h4>
+<ul class="skill-list">
+<li>Amazon Seller Central</li>
+<li>Noon Seller Lab</li>
+<li>Trendyol Partner</li>
+<li>Helium 10</li>
+<li>Jungle Scout</li>
+<li>Shopify</li>
+<li>WooCommerce</li>
+<li>WordPress</li>
+<li>TikTok Shop</li>
+<li>Meta Commerce Shop</li>
+</ul>
+</div>
+
+<div class="skill-category">
+<h4 class="skill-category-title">SEO & Research</h4>
+<ul class="skill-list">
+<li>SEMrush</li>
+<li>Ahrefs</li>
+<li>Screaming Frog</li>
+<li>Moz</li>
+<li>Surfer SEO</li>
+<li>Clearscope</li>
+<li>Keyword Research Suites</li>
+<li>Competitive Analysis Dashboards</li>
+<li>Proprietary 30 Day 5 Keywords Strategy</li>
+</ul>
+</div>
+
+<div class="skill-category">
+<h4 class="skill-category-title">Creative & Production</h4>
+<ul class="skill-list">
+<li>Adobe Photoshop</li>
+<li>Adobe Premiere Pro</li>
+<li>Adobe Illustrator</li>
+<li>Adobe After Effects</li>
+<li>Canva Pro</li>
+<li>CapCut</li>
+<li>Final Cut Pro</li>
+<li>Motion Graphics</li>
+<li>Ad Creative Production</li>
+<li>Graphic Design</li>
+</ul>
+</div>
+
+<div class="skill-category">
+<h4 class="skill-category-title">CRM & Automation</h4>
+<ul class="skill-list">
+<li>Odoo CRM</li>
+<li>Klaviyo</li>
+<li>HubSpot</li>
+<li>Mailchimp</li>
+<li>Salesforce Marketing Cloud</li>
+<li>WhatsApp Business API</li>
+</ul>
+</div>
+
+<div class="skill-category">
+<h4 class="skill-category-title">Business Intelligence & Data</h4>
+<ul class="skill-list">
+<li>Power BI</li>
+<li>Advanced Excel</li>
+<li>Google Data Studio</li>
+<li>Tableau</li>
+<li>SQL Fundamentals</li>
+<li>Data Visualization</li>
+</ul>
+</div>
+
+<div class="skill-category">
+<h4 class="skill-category-title">Web Management & Building</h4>
+<ul class="skill-list">
+<li>WordPress Development</li>
+<li>Shopify Theme Customisation</li>
+<li>WooCommerce Architecture</li>
+<li>Custom CMS Development</li>
+<li>Mobile First Design</li>
+<li>UX/UI Optimisation</li>
+<li>Web Hosting Management</li>
+</ul>
+</div>
+
+<div class="skill-category">
+<h4 class="skill-category-title">Emerging Technologies</h4>
+<ul class="skill-list">
+<li>Generative AI</li>
+<li>AI Agents</li>
+<li>Cloud Computing</li>
+<li>Big Data Analytics</li>
+<li>Programmatic Marketing Stacks</li>
+<li>Marketing Automation</li>
+</ul>
+</div>
+</div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+<div class="footer-name">MUHAMMAD YASEEN</div>
+<div class="footer-title">Digital Marketing & E Commerce Manager</div>
+<div class="footer-contact">
+<div class="footer-contact-item">
+<svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
++971 56 556 1226
+</div>
+<div class="footer-contact-item">
+<svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
++92 303 822 4894
+</div>
+<div class="footer-contact-item">
+<svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+<a href="mailto:yacin4130@gmail.com">yacin4130@gmail.com</a>
+</div>
+<div class="footer-contact-item">
+<svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+Dubai UAE & Islamabad Pakistan
+</div>
+<div class="footer-contact-item">
+<svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+<a href="https://linkedin.com/in/muhammad-yaseen" target="_blank">LinkedIn</a>
+</div>
+</div>
+<p class="footer-bottom">REFERENCES AND PORTFOLIO AVAILABLE UPON REQUEST</p>
+</footer>
+
+<script>
+// Mouse glow effect
+function handleMouseMove(e,card){
+const rect=card.getBoundingClientRect();
+const x=e.clientX-rect.left;
+const y=e.clientY-rect.top;
+card.style.setProperty('--mouse-x',x+'px');
+card.style.setProperty('--mouse-y',y+'px');
+const centerX=rect.width/2;
+const centerY=rect.height/2;
+const rotateX=(y-centerY)/25;
+const rotateY=(centerX-x)/25;
+card.style.transform=`perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-12px)`;
+}
+function handleMouseLeave(card){
+card.style.transform='translateY(0) rotateX(0) rotateY(0)';
+}
+
+// Scroll reveal
+const observer=new IntersectionObserver((entries)=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.style.opacity='1';
+entry.target.style.transform='translateY(0)';
+}
+});
+},{threshold:0.08});
+
+document.querySelectorAll('.card-3d, .freelance-card, .influencer-card, .skill-category').forEach(el=>{
+el.style.opacity='0';
+el.style.transform='translateY(40px)';
+el.style.transition='all 0.7s cubic-bezier(0.23,1,0.32,1)';
+observer.observe(el);
+});
+</script>
+</body>
+</html>
+# Muhammad Yaseen — Digital Marketing & E Commerce Portfolio
+
+Live portfolio: [https://yourusername.github.io/muhammad-yaseen-portfolio](https://yourusername.github.io/muhammad-yaseen-portfolio)
+
+## About
+
+Senior Digital Marketing & E Commerce Manager with 7+ years of experience generating $16M+ in collective revenue with 17,000% average ROAS across global luxury brands.
+
+## Brands Managed
+
+- KITH | COTY | BYD | Jose Eber Beauty | Forever for Love Diamonds | DXB Acoustic | Couture Hair Pro
+- MyBreeches.com | Echonik | Deconik | Bag2Pack | Lyon Scent | Frenciiga | Aldar | Emaar | AUM99homes
+
+## Contact
+
+- Dubai UAE: +971 56 556 1226
+- Islamabad Pakistan: +92 303 822 4894
+- Email: yacin4130@gmail.com
+- LinkedIn: linkedin.com/in/muhammad-yaseen
